@@ -10,7 +10,10 @@
         "DisplayName": "AppName 1.0.0",
         "Description": "Installs AppName 1.0.0",
         "Publisher": "AppVendor",
-        "Notes": "AppNote"
+        "Notes": "AppNote",
+        "RoleScopeTagIDs": ]
+            "6"
+        ]
     },
     "Program": {
         "InstallCommand": "<-- Only required when SetupType is set as EXE -->",
