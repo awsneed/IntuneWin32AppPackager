@@ -11,7 +11,7 @@
         "Description": "Installs AppName 1.0.0",
         "Publisher": "AppVendor",
         "Notes": "AppNote",
-        "RoleScopeTagIDs": ]
+        "RoleScopeTagIDs": [
             "6"
         ]
     },
