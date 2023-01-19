@@ -40,7 +40,7 @@ Process {
 
     if (-not($PSBoundParameters["Validate"])) {
         # Connect and retrieve authentication token
-        Connect-MSIntuneGraph -TenantName $AppData.TenantInformation.Name -PromptBehavior $AppData.TenantInformation.PromptBehavior -ApplicationID $AppData.TenantInformation.ApplicationID -Verbose
+        Connect-MSIntuneGraph -TenantID $AppData.TenantInformation.TenantID -ClientID $AppData.TenantInformation.ClientID -Verbose
     }
 
     # Create required .intunewin package from source folder
