@@ -62,6 +62,13 @@
             "ScriptFile": "detection.ps1",
             "EnforceSignatureCheck": "true \\ false",
             "RunAs32Bit": "true \\ false"
+        },
+        {
+            "Type": "File",
+            "DetectionMethod": "Existence \\ DateModified \\ DateCreated \\ Version \\ Size",
+            "Path": "<path to parent folder>",
+            "FileOrFolder": "<relative path from parent to file or folder to check>",
+            "Check32BitOn64System": "false \\ true"
         }
     ],
     "TenantInformation": {
