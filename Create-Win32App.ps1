@@ -47,7 +47,7 @@ Process {
     $IntuneAppPackage = New-IntuneWin32AppPackage -SourceFolder $SourceFolder -SetupFile $AppData.PackageInformation.SetupFile -OutputFolder $OutputFolder -Verbose
 
     # Create default requirement rule
-    $RequirementRule = New-IntuneWin32AppRequirementRule -Architecture $AppData.RequirementRule.Architecture -MinimumSupportedOperatingSystem $AppData.RequirementRule.MinimumRequiredOperatingSystem
+    $RequirementRule = New-IntuneWin32AppRequirementRule -Architecture $AppData.RequirementRule.Architecture -MinimumSupportedWindowsRelease $AppData.RequirementRule.MinimumRequiredOperatingSystem
 
     # Create additional custom requirement rules
     $CustomRequirementRuleCount = ($AppData.CustomRequirementRule | Measure-Object).Count
