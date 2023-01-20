@@ -73,6 +73,6 @@
     ],
     "TenantInformation": {
         "TenantID": "<guid>",
-        "ApplicationID": "<guid>"
+        "ClientID": "<guid>"
     }
 }
