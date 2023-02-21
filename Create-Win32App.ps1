@@ -418,7 +418,7 @@ Process {
         "DisplayName" = $AppData.Information.DisplayName
         "Description" = $AppData.Information.Description
         "Publisher" = $AppData.Information.Publisher
-        "RoleScopeTagIDs" = $AppData.Information.RoleScopeTagIDs
+        "ScopeTagName" = $AppData.Information.ScopeTagNames
         "InstallExperience" = $AppData.Program.InstallExperience
         "RestartBehavior" = $AppData.Program.DeviceRestartBehavior
         "DetectionRule" = $DetectionRules
