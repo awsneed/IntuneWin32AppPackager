@@ -1,0 +1,44 @@
+{
+    "PackageInformation": {
+        "SetupType": "EXE",
+        "SetupFile": "install.ps1",
+        "SourceFolder": "Source",
+        "OutputFolder": "Package",
+        "IconFile": "Icon.png"
+    },
+    "Information": {
+        "DisplayName": "<App Name>",
+        "Description": "<App Description>",
+        "Publisher": "<App Publisher>",
+        "Notes": "<Notes for admins; accepts newlines (\n)>",
+        "ScopeTagNames": [
+            "<Scope Tag 1>",
+            "<Scope Tag 2>",
+            "<Scope Tag 3>"
+        ]
+    },
+    "Program": {
+        "InstallCommand": "powershell.exe -ExecutionPolicy Bypass -File .\\Install.ps1",
+        "UninstallCommand": "powershell.exe -ExecutionPolicy Bypass -File .\\UnInstall.ps1",
+        "InstallExperience": "system",
+        "DeviceRestartBehavior": "suppress"
+    },
+    "RequirementRule": {
+        "MinimumSupportedWindowsRelease": "1607",
+        "Architecture": "All"
+    },
+    "CustomRequirementRule": [
+    ],
+    "DetectionRule": [
+        {
+            "Type": "Script",
+            "ScriptFile": "detection.ps1",
+            "EnforceSignatureCheck": "false",
+            "RunAs32Bit": "false"
+        }
+    ],
+    "TenantInformation": {
+        "TenantID": "<guid>",
+        "ClientID": "<guid>"
+    }
+}
