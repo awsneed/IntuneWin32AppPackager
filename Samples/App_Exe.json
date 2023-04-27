@@ -1,0 +1,46 @@
+{
+    "PackageInformation": {
+        "SetupType": "EXE",
+        "SetupFile": "<setup exe>",
+        "SourceFolder": "Source",
+        "OutputFolder": "Package",
+        "IconFile": "Icon.png"
+    },
+    "Information": {
+        "DisplayName": "<App Name>",
+        "Description": "<App Description>",
+        "Publisher": "<App Publisher>",
+        "Notes": "<Notes for admins; accepts newlines (\n)>",
+        "ScopeTagNames": [
+            "<Scope Tag 1>",
+            "<Scope Tag 2>",
+            "<Scope Tag 3>"
+        ]
+    },
+    "Program": {
+        "InstallCommand": "<install command>",
+        "UninstallCommand": "<uninstall command>",
+        "InstallExperience": "<system / user>",
+        "DeviceRestartBehavior": "<suppress / force / basedOnReturnCode / allow>"
+    },
+    "RequirementRule": {
+        "MinimumSupportedWindowsRelease": "1607",
+        "Architecture": "<All / x64 / x86>"
+    },
+    "CustomRequirementRule": [
+    ],
+    "DetectionRule": [
+        {
+            "Type": "File",
+            "DetectionMethod": "Existence",
+            "Path": "<directory containing the file or folder to check for>",
+            "FileOrFolder": "<name of the actual file or folder to check for>",
+            "DetectionType": "exists",
+            "Check32BitOn64System": "<true / false>"
+        }
+    ],
+    "TenantInformation": {
+        "TenantID": "<guid>",
+        "ClientID": "<guid>"
+    }
+}
