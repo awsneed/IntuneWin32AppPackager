@@ -29,8 +29,8 @@ param(
 )
 Process {
     # Read app data from JSON manifest
-    $AppDataFile = Join-Path -Path $PSScriptRoot -ChildPath 'App.json'
-    $AppData = Get-Content -Path $AppDataFile | ConvertFrom-Json
+    $AppDataFile = Join-Path -Path $PSScriptRoot -ChildPath 'App.psd1'
+    $AppData = Import-PowerShellDataFile -Path $AppDataFile
 
     # Required packaging variables
     $SourceFolder = Join-Path -Path $PSScriptRoot -ChildPath $AppData.PackageInformation.SourceFolder
