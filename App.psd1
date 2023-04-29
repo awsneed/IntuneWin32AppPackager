@@ -81,7 +81,7 @@
             W11_21H2
             W11_22H2
         #> 
-        Architectures = 'x64'
+        Architecture = 'x64'
     }
 
     CustomRequirementRule = @{}
@@ -118,7 +118,7 @@
             # Example
 
             Type = 'Script'
-            ScriptFile = 'detection.ps1'
+            ScriptFile = 'detection_rule_x64.ps1'
             EnforceSignatureCheck = $false
             RunAs32Bit = $false
         }
