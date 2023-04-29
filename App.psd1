@@ -1,7 +1,7 @@
 @{
     PackageInformation = @{
         # Whether the app uses a .exe or a .msi installer
-        SetupType = ''
+        SetupType = 'EXE'
         <# Valid values
             MSI
             EXE
@@ -11,7 +11,7 @@
         SourceFolder = 'Source'
 
         # Path to the app's installer, relative to the SourceFolder path
-        SetupFile = ''
+        SetupFile = 'Setup.exe'
 
         # Directory to store the .intunewin in
         OutputFolder = 'Package'
@@ -22,38 +22,38 @@
 
     Information = @{
         # Display name of the app for Intune / Company Portal
-        DisplayName = ''
+        DisplayName = 'App Name'
 
         # Description of the app. Supports Markdown formatting and newlines with `n
-        Description = ""
+        Description = "App Description"
 
         # Publisher of the app
-        Publisher = ''
+        Publisher = 'App Publisher'
 
         # Notes for other admins in Intune. Supports newlines with `n
-        Notes = ""
+        Notes = "App admin notes"
 
         # Scope tags to assign to the app. You must have permission to use any tags specified, and your org may
         # require at least one to be specified.
         ScopeTagNames = @(
-            ''
-            ''
-            ''
+            'Scope1'
+            'Scope2'
+            'Scope3'
         )
     }
 
     Program = @{
         # Install command used by Intune. Only required for SetupType of EXE.
-        InstallCommand = '< Only required for SetupType of EXE >'
+        InstallCommand = '.\Setup.exe -s'
 
         # Uninstall command used by Intune. Only required for SetupType of EXE.
-        UninstallCommand = '< Only required for SetupType of EXE >'
+        UninstallCommand = '.\Setup.exe --uninstall -s'
 
         # Whether to install the app system-wide or per-user
-        InstallExperience = '< System | User >'
+        InstallExperience = 'System'
 
         # Set how restarts are handled for the install of this app
-        DeviceRestartBehavior = ''
+        DeviceRestartBehavior = 'BasedOnReturnCode'
         <# Valid values
             Suppress - Stop any installer-initiated restarts
             Force - Intune will force a restart after installation
@@ -64,7 +64,7 @@
 
     RequirementRule = @{
         # Minmum version of Windows the app can be installed on.
-        MinimumSupportedWindowsRelease = '< ... >'
+        MinimumSupportedWindowsRelease = 'W10_1607'
         <# Valid values
             W10_1607
             W10_1703
@@ -81,7 +81,7 @@
             W11_21H2
             W11_22H2
         #> 
-        Architectures = '< All | x64 | x86 >'
+        Architectures = 'x64'
     }
 
     CustomRequirementRule = @{}
@@ -126,9 +126,9 @@
 
     TenantInformation = @{
         # The site's Intune tenant ID
-        TenantID = ''
+        TenantID = '00000000-0000-0000-0000-000000000000'
 
         # Application ID with which to access Graph with; it will need the appropriate permissions granted to it
-        ClientID = ''
+        ClientID = '00000000-0000-0000-0000-000000000000'
     }
 }
