@@ -28,9 +28,15 @@ param(
     [switch]$Validate
 )
 Process {
-    # Read app data from JSON manifest
-    $AppDataFile = Join-Path -Path $PSScriptRoot -ChildPath 'App.psd1'
-    $AppData = Import-PowerShellDataFile -Path $AppDataFile
+    # Read app data from manifest
+    # Read a psd1 first if it exists, else try to read a json
+    if (Test-Path (Join-Path $PSScriptRoot 'App.psd1')) {
+        $AppDataFile = Join-Path -Path $PSScriptRoot -ChildPath 'App.psd1'
+        $AppData = Import-PowerShellDataFile -Path $AppDataFile
+    } else {
+        $AppDataFile = Join-Path -Path $PSScriptRoot -ChildPath 'App.json'
+        $AppData = Get-Content -Path $AppDataFile | ConvertFrom-Json
+    }
 
     # Required packaging variables
     $SourceFolder = Join-Path -Path $PSScriptRoot -ChildPath $AppData.PackageInformation.SourceFolder
