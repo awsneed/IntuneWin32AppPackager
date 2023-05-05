@@ -1,4 +1,6 @@
-﻿<#
+﻿#Requires -Modules @{ ModuleName='IntuneWin32App'; ModuleVersion='1.4.1' }
+
+<#
 .SYNOPSIS
     Create a Win32 app in Microsoft Intune based on input from app manifest file.
 
@@ -21,6 +23,7 @@
     Version history:
     1.0.0 - (2020-09-26) Script created
 #>
+
 [CmdletBinding(SupportsShouldProcess = $true)]
 param(
     [parameter(
