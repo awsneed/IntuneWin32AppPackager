@@ -23,19 +23,31 @@
 #>
 [CmdletBinding(SupportsShouldProcess = $true)]
 param(
-    [parameter(Mandatory = $false, HelpMessage = 'Specify to validate manifest file configuration.')]
+    [parameter(
+        Mandatory = $false,
+        HelpMessage = 'Specify to validate manifest file configuration.')]
     [ValidateNotNullOrEmpty()]
-    [switch]$Validate
+    [switch]
+    $Validate,
+
+    # Allow passing in pre-created hashtable
+    [Parameter(
+        ValueFromPipeline = $true,
+        ValueFromPipelineByPropertyName = $true,
+        HelpMessage = 'Specify a PSCustomObject of the app data manifest.')]
+    [ValidateNotNull()]
+    [PSCustomObject]
+    $AppData
 )
 Process {
-    # Read app data from manifest
-    # Read a psd1 first if it exists, else try to read a json
-    if (Test-Path (Join-Path $PSScriptRoot 'App.psd1')) {
-        $AppDataFile = Join-Path -Path $PSScriptRoot -ChildPath 'App.psd1'
-        $AppData = Import-PowerShellDataFile -Path $AppDataFile
-    } else {
-        $AppDataFile = Join-Path -Path $PSScriptRoot -ChildPath 'App.json'
-        $AppData = Get-Content -Path $AppDataFile | ConvertFrom-Json
+    # Read app data from manifest file if not passed in
+    if (-not $PSBoundParameters.ContainsKey('AppData')) {
+        # Read a psd1 first if it exists, else try to read a json
+        if (Test-Path (Join-Path $PSScriptRoot 'App.psd1')) {
+            $AppData = [PSCustomObject](Import-PowerShellDataFile -Path (Join-Path -Path $PSScriptRoot -ChildPath 'App.psd1'))
+        } else {
+            $AppData = Get-Content -Path (Join-Path -Path $PSScriptRoot -ChildPath 'App.json') | ConvertFrom-Json
+        }
     }
 
     # Required packaging variables
@@ -245,7 +257,6 @@ Process {
                                 'RunAs32BitOn64System'      = [System.Convert]::ToBoolean($RequirementRuleItem.RunAs32BitOn64System)
                                 'EnforceSignatureCheck'     = [System.Convert]::ToBoolean($RequirementRuleItem.EnforceSignatureCheck)
                             }
-                            
                         }
                     }
 
